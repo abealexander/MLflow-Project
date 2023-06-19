@@ -1,0 +1,10 @@
+### dependency to be installed
+tqdm
+mlflow
+pandas
+numpy
+PyYAML
+Pillow
+tensorflow
+### local packages -
+-e . # << uncomment this to install from setup.py
