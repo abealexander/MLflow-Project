@@ -1,5 +1,7 @@
 # CNN-MLFlow
-A Dog Cat classifier implented with CNN along with MLFlow
+A Dog Cat classifier implented with CNN packaged with MLFlow Projects
+
+Learn more about MLFlow Projects [here](https://mlflow.org/docs/latest/projects.html).
 
 ## STEPS -
 
