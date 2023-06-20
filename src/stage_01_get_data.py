@@ -1,11 +1,8 @@
 import argparse
 import os
-import shutil
-from tqdm import tqdm
 import logging
 from src.utils.common import read_yaml, create_directories, unzip_file
 from src.utils.data_mgmt import validate_image
-import random
 import urllib.request as req
 
 STAGE = "GET_DATA" ## <<< change stage name 
