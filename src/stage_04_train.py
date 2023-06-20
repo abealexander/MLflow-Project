@@ -1,11 +1,10 @@
 import argparse
 import os
-import shutil
-from tqdm import tqdm
 import logging
 from src.utils.common import read_yaml, create_directories
-import random
 import tensorflow as tf
+import mlflow
+import pickle
 
 STAGE = "Training" ## <<< change stage name 
 
@@ -63,10 +62,23 @@ def main(config_path):
 
     classifier = tf.keras.models.load_model(path_to_model)
 
+    ## load callback
+
+    path_to_callback = os.path.join(
+        config["data"]["local_dir"],
+        config["data"]["model_dir"],
+        config["data"]["callback_file"]) 
+
+    logging.info(f"load the callbacks from {path_to_callback}")
+    
+    # Unpickling
+    with open(path_to_callback, "rb") as fp:   
+        CALLBACKS_LIST = pickle.load(fp)
+
     ## training
     logging.info(f"training started")
 
-    classifier.fit(train_ds, epochs=params["epochs"], validation_data = val_ds)
+    classifier.fit(train_ds, epochs=params["epochs"], validation_data = val_ds, callbacks=CALLBACKS_LIST)
     
     trained_model_file = os.path.join(
         config["data"]["local_dir"],
@@ -76,6 +88,9 @@ def main(config_path):
     classifier.save(trained_model_file)
     logging.info(f"trained model is saved at : {trained_model_file}")
 
+    with mlflow.start_run() as runs:
+        mlflow.log_params(params)
+        mlflow.keras.log_model(classifier, "model")
     
 
 if __name__ == '__main__':

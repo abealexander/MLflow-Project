@@ -1,5 +1,4 @@
 ### dependency to be installed
-tqdm
 mlflow
 pandas
 numpy
