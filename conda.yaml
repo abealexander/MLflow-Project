@@ -1,4 +1,4 @@
-name: c:\Users\Admin\Documents\Abe Data\iNeuron\Courses\Full Stack Data Science\Deep
+name: C:\Users\Admin\Documents\Abe Data\iNeuron\Courses\Full Stack Data Science\Deep
   Learning\Day-17 MLFlow Project\MLflow-Project\env
 channels:
   - defaults
@@ -91,5 +91,5 @@ dependencies:
       - werkzeug==2.2.3
       - wrapt==1.15.0
       - zipp==3.15.0
-prefix: c:\Users\Admin\Documents\Abe Data\iNeuron\Courses\Full Stack Data Science\Deep
+prefix: C:\Users\Admin\Documents\Abe Data\iNeuron\Courses\Full Stack Data Science\Deep
   Learning\Day-17 MLFlow Project\MLflow-Project\env
